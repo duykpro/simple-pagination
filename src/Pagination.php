@@ -250,7 +250,7 @@ Class Pagination{
     */
     protected function url($path)
     {
-        $url = $this->base_url;
+        $url = $this->config['base_url'];
         $url = explode('/', $url);
         $url = array_filter($url);
         return implode('/', $url).'/'.$path;
