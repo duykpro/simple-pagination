@@ -1,0 +1,20 @@
+{
+    "name": "duykpro/simple-pagination",
+    "type": "library",
+    "homepage": "http://duyk.info",
+    "description": "A simple PHP pagination class working perfectly with all PHP projects",
+    "require": {
+        "symfony/http-kernel": "~3"
+    },
+    "authors": [
+        {
+            "name": "Doan Khanh",
+            "email": "duykhanh@duyk.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "DuyK": "src"
+        }
+    }
+}
