@@ -1,6 +1,6 @@
 <?php
 
-namespace DuyK;;
+namespace DuyK;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,6 +14,7 @@ Class Pagination{
     */
     protected $config = array(
             
+            'base_url' => 'http://example.com/', // Your base URL
             'uri_path' => '', // URI path (IE: controller/action/id), leave none for auto detection
             'num_links' => 3, // Number of links to show
             
@@ -221,14 +222,14 @@ Class Pagination{
         if($this->config['get_query'])
         {
             $_GET[$this->config['get_query']] = $page;
-            $url = url($this->get_uri_path().'?'.http_build_query($_GET));
+            $url = $this->url($this->get_uri_path().'?'.http_build_query($_GET));
         }
         // Use uri segment
         else
         {
             $segments = $this->uri_segments;
             $segments[$this->config['uri_segment_position']] = $page;
-            $url = url(implode('/', $segments));
+            $url = $this->url(implode('/', $segments));
 
             // If isset GET query
             if(count($_GET))
@@ -238,5 +239,20 @@ Class Pagination{
         }
 
         return $url;
+    }
+
+    /**
+    * Base URL
+    *
+    * @access protected
+    * @param string
+    * @return string
+    */
+    protected function url($path)
+    {
+        $url = $this->base_url;
+        $url = explode('/', $url);
+        $url = array_filter($url);
+        return implode('/', $url).'/'.$path;
     }
 }
