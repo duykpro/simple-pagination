@@ -251,8 +251,9 @@ Class Pagination{
     protected function url($path)
     {
         $url = $this->config['base_url'];
-        $url = explode('/', $url);
-        $url = array_filter($url);
-        return implode('/', $url).'/'.$path;
+        
+        $slash = preg_match('/\/$/', $url) ? '' : '/';
+        
+        return $url.$slash.$path;
     }
 }
