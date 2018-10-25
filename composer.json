@@ -4,7 +4,7 @@
     "homepage": "http://duyk.info",
     "description": "A simple PHP pagination class working perfectly with all PHP projects",
     "require": {
-        "symfony/http-kernel": "~3"
+        "symfony/http-kernel": ">=3"
     },
     "authors": [
         {
